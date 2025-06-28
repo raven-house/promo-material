@@ -26,7 +26,7 @@ export const RavenHouseDemo: React.FC = () => {
       {frame < 60 && (
         <Img
           src={staticFile("/img/raven-house-logo-sm.png")}
-          className="w-1/4 mx-auto mt-48"
+          className="w-1/4 mx-auto"
           style={{ opacity: logoOpacity }}
         />
       )}
