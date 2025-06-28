@@ -35,11 +35,11 @@ export const Main = ({ title }: z.infer<typeof CompositionProps>) => {
   });
 
   return (
-    <AbsoluteFill className="bg-white">
+    <AbsoluteFill className="bg-blue-500">
       <Sequence durationInFrames={transitionStart + transitionDuration}>
         <Rings outProgress={logoOut}></Rings>
         <AbsoluteFill className="justify-center items-center">
-          <NextLogo outProgress={logoOut}></NextLogo>
+          <NextLogo outProgress={0} style={{ width: 500, margin: "0 auto" }} />
         </AbsoluteFill>
       </Sequence>
       <Sequence from={transitionStart + transitionDuration / 2}>
