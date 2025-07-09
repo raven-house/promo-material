@@ -16,14 +16,14 @@ loadFont("normal", {
 });
 
 const logoStart = 0;
-const logoAnimDuration = 60;
-const titleStart = 40;
-const titleAnimDuration = 80;
-const subtitleStart = 80;
-const subtitleAnimDuration = 60;
-const taglineStart = 120;
-const taglineAnimDuration = 60;
-const fadeOutStart = 200;
+const logoAnimDuration = 25; // was 40
+const titleStart = 25;
+const titleAnimDuration = 40; // was 60
+const subtitleStart = 55;
+const subtitleAnimDuration = 30; // was 45
+const taglineStart = 90;
+const taglineAnimDuration = 25; // was 45
+const fadeOutStart = 120; // was 160
 
 export const RavenHouseIntro: React.FC = () => {
   const frame = useCurrentFrame();
@@ -32,31 +32,28 @@ export const RavenHouseIntro: React.FC = () => {
   const logoScale = spring({
     fps,
     frame: frame - logoStart,
-    config: { damping: 100, stiffness: 200 },
+    config: { damping: 80, stiffness: 250 }, // faster spring
     durationInFrames: logoAnimDuration,
   });
 
   const logoOpacity = interpolate(
     frame,
-    [logoStart, logoStart + 30, fadeOutStart, fadeOutStart + 30],
+    [logoStart, logoStart + 20, fadeOutStart, fadeOutStart + 20],
     [0, 1, 1, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
   const titleProgress = spring({
     fps,
     frame: frame - titleStart,
-    config: { damping: 200, stiffness: 300 },
+    config: { damping: 150, stiffness: 350 },
     durationInFrames: titleAnimDuration,
   });
 
   const titleY = interpolate(titleProgress, [0, 1], [50, 0]);
   const titleOpacity = interpolate(
     frame,
-    [titleStart, titleStart + 40, fadeOutStart, fadeOutStart + 30],
+    [titleStart, titleStart + 30, fadeOutStart, fadeOutStart + 20],
     [0, 1, 1, 0],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
@@ -64,14 +61,14 @@ export const RavenHouseIntro: React.FC = () => {
   const subtitleProgress = spring({
     fps,
     frame: frame - subtitleStart,
-    config: { damping: 150, stiffness: 200 },
+    config: { damping: 100, stiffness: 300 },
     durationInFrames: subtitleAnimDuration,
   });
 
   const subtitleY = interpolate(subtitleProgress, [0, 1], [30, 0]);
   const subtitleOpacity = interpolate(
     frame,
-    [subtitleStart, subtitleStart + 30, fadeOutStart, fadeOutStart + 30],
+    [subtitleStart, subtitleStart + 25, fadeOutStart, fadeOutStart + 20],
     [0, 1, 1, 0],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
@@ -79,14 +76,14 @@ export const RavenHouseIntro: React.FC = () => {
   const taglineProgress = spring({
     fps,
     frame: frame - taglineStart,
-    config: { damping: 100, stiffness: 150 },
+    config: { damping: 80, stiffness: 250 },
     durationInFrames: taglineAnimDuration,
   });
 
   const taglineScale = interpolate(taglineProgress, [0, 1], [0.8, 1]);
   const taglineOpacity = interpolate(
     frame,
-    [taglineStart, taglineStart + 20, fadeOutStart, fadeOutStart + 30],
+    [taglineStart, taglineStart + 15, fadeOutStart, fadeOutStart + 20],
     [0, 1, 1, 0],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
@@ -134,7 +131,7 @@ export const RavenHouseIntro: React.FC = () => {
               transform: `translateY(${subtitleY}px)`,
               opacity: subtitleOpacity,
             }}
-            className="text-2xl md:text-3xl font-medium text-gray-300 mb-4 mt-24"
+            className="text-2xl md:text-3xl font-medium text-gray-300 mb-4 mt-20"
           >
             Privacy-First NFT Platform
           </h2>

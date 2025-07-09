@@ -22,7 +22,7 @@ const TRANSITION_TIMING = 20;
 const component = () => (
   <div className="p-20 w-screen h-screen bg-red-500">
     <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={240}>
+      <TransitionSeries.Sequence durationInFrames={200}>
         <RavenHouseIntro />
       </TransitionSeries.Sequence>
 
