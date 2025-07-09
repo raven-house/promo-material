@@ -15,22 +15,20 @@ loadFont("normal", {
   weights: ["400", "500", "600", "700"],
 });
 
+const logoStart = 0;
+const logoAnimDuration = 60;
+const titleStart = 40;
+const titleAnimDuration = 80;
+const subtitleStart = 80;
+const subtitleAnimDuration = 60;
+const taglineStart = 120;
+const taglineAnimDuration = 60;
+const fadeOutStart = 200;
+
 export const RavenHouseIntro: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Animation timings
-  const logoStart = 0;
-  const logoAnimDuration = 60;
-  const titleStart = 40;
-  const titleAnimDuration = 80;
-  const subtitleStart = 80;
-  const subtitleAnimDuration = 60;
-  const taglineStart = 120;
-  const taglineAnimDuration = 60;
-  const fadeOutStart = 200;
-
-  // Logo animation
   const logoScale = spring({
     fps,
     frame: frame - logoStart,
@@ -48,7 +46,6 @@ export const RavenHouseIntro: React.FC = () => {
     },
   );
 
-  // Title animation
   const titleProgress = spring({
     fps,
     frame: frame - titleStart,
@@ -64,7 +61,6 @@ export const RavenHouseIntro: React.FC = () => {
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
-  // Subtitle animation
   const subtitleProgress = spring({
     fps,
     frame: frame - subtitleStart,
@@ -80,7 +76,6 @@ export const RavenHouseIntro: React.FC = () => {
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
-  // Tagline animation
   const taglineProgress = spring({
     fps,
     frame: frame - taglineStart,
@@ -98,13 +93,13 @@ export const RavenHouseIntro: React.FC = () => {
 
   return (
     <AbsoluteFill className="bg-[#1B1122]">
-      <AbsoluteFill className="flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <div
           style={{
             transform: `scale(${logoScale})`,
             opacity: logoOpacity,
           }}
-          className="mb-32"
+          className="mt-40"
         >
           <div className="relative mb-8">
             <Img
@@ -114,27 +109,25 @@ export const RavenHouseIntro: React.FC = () => {
             />
           </div>
         </div>
-      </AbsoluteFill>
+      </div>
 
-      {/* Main Title */}
-      <AbsoluteFill className="flex items-center justify-center">
-        <div className="text-center mt-24">
+      <div className="flex items-center justify-center">
+        <div className="text-center">
           <h1
             style={{
               fontFamily,
               transform: `translateY(${titleY}px)`,
               opacity: titleOpacity,
             }}
-            className="text-6xl md:text-7xl font-bold text-white mb-6 tracking-tight"
+            className="text-6xl md:text-7xl font-bold text-white tracking-tight"
           >
             <span>RAVEN HOUSE</span>
           </h1>
         </div>
-      </AbsoluteFill>
+      </div>
 
-      {/* Subtitle */}
-      <AbsoluteFill className="flex items-center justify-center">
-        <div className="text-center mt-32">
+      <div className="flex items-center justify-center">
+        <div className="text-center">
           <h2
             style={{
               fontFamily,
@@ -146,11 +139,10 @@ export const RavenHouseIntro: React.FC = () => {
             Privacy-First NFT Platform
           </h2>
         </div>
-      </AbsoluteFill>
+      </div>
 
-      {/* Tagline */}
-      <AbsoluteFill className="flex items-center justify-center">
-        <div className="text-center mt-80">
+      <div className="flex items-center justify-center">
+        <div className="text-center">
           <p
             style={{
               fontFamily,
@@ -166,7 +158,7 @@ export const RavenHouseIntro: React.FC = () => {
             </span>
           </p>
         </div>
-      </AbsoluteFill>
+      </div>
     </AbsoluteFill>
   );
 };

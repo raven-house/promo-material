@@ -13,3 +13,6 @@ export const DURATION_IN_FRAMES = 200;
 export const VIDEO_WIDTH = 1280;
 export const VIDEO_HEIGHT = 720;
 export const VIDEO_FPS = 30;
+export const INTRO_SOUND_IN_SECONDS = 14;
+export const CREATE_BUTTON_SOUND_IN_SECONDS = 5;
+export const SELECT_COLLECTION_TYPE_IN_SECONDS = 11;
