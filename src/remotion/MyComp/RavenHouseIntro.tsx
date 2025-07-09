@@ -1,12 +1,14 @@
 import type React from "react";
 import {
   AbsoluteFill,
+  Audio,
   interpolate,
   spring,
   useCurrentFrame,
   useVideoConfig,
   Img,
   staticFile,
+  Sequence,
 } from "remotion";
 import { loadFont, fontFamily } from "@remotion/google-fonts/Inter";
 
@@ -16,14 +18,14 @@ loadFont("normal", {
 });
 
 const logoStart = 0;
-const logoAnimDuration = 25; // was 40
+const logoAnimDuration = 25;
 const titleStart = 25;
-const titleAnimDuration = 40; // was 60
+const titleAnimDuration = 40;
 const subtitleStart = 55;
-const subtitleAnimDuration = 30; // was 45
+const subtitleAnimDuration = 30;
 const taglineStart = 90;
-const taglineAnimDuration = 25; // was 45
-const fadeOutStart = 120; // was 160
+const taglineAnimDuration = 25;
+const fadeOutStart = 120;
 
 export const RavenHouseIntro: React.FC = () => {
   const frame = useCurrentFrame();
@@ -32,7 +34,7 @@ export const RavenHouseIntro: React.FC = () => {
   const logoScale = spring({
     fps,
     frame: frame - logoStart,
-    config: { damping: 80, stiffness: 250 }, // faster spring
+    config: { damping: 80, stiffness: 250 },
     durationInFrames: logoAnimDuration,
   });
 
@@ -90,6 +92,16 @@ export const RavenHouseIntro: React.FC = () => {
 
   return (
     <AbsoluteFill className="bg-[#1B1122]">
+      <Sequence from={titleStart}>
+        <Audio src={staticFile("/audio/whoosh.mp3")} volume={0.3} />
+      </Sequence>
+      <Sequence from={subtitleStart}>
+        <Audio src={staticFile("/audio/whoosh.mp3")} volume={0.2} />
+      </Sequence>
+      <Sequence from={taglineStart}>
+        <Audio src={staticFile("/audio/whoosh.mp3")} volume={0.1} />
+      </Sequence>
+
       <div className="flex items-center justify-center">
         <div
           style={{

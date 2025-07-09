@@ -22,9 +22,13 @@ const TRANSITION_TIMING = 20;
 const component = () => (
   <div className="p-20 w-screen h-screen bg-red-500">
     <TransitionSeries>
-      <TransitionSeries.Sequence durationInFrames={200}>
+      <TransitionSeries.Sequence durationInFrames={120}>
         <RavenHouseIntro />
       </TransitionSeries.Sequence>
+      <TransitionSeries.Transition
+        presentation={clockWipe({ width: VIDEO_WIDTH, height: VIDEO_HEIGHT })}
+        timing={linearTiming({ durationInFrames: TRANSITION_TIMING })}
+      />
 
       <TransitionSeries.Sequence
         durationInFrames={

@@ -12,8 +12,8 @@ export const TopCollectionsScene: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
-  const translateX = interpolate(frame, [0, durationInFrames], [0, 30]); // pan left
-  const scale = interpolate(frame, [0, durationInFrames], [1, 1.05]); // slight zoom-in
+  const translateX = interpolate(frame, [0, durationInFrames], [0, 30]);
+  const scale = interpolate(frame, [0, durationInFrames], [1, 1.05]);
 
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
