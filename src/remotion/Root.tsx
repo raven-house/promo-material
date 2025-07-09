@@ -8,12 +8,15 @@ import { SelectCollectionTypeScene } from "./MyComp/SelectCollectionTypeScene";
 import {
   CREATE_BUTTON_SOUND_IN_SECONDS,
   DURATION_IN_FRAMES,
+  DURATION_IN_FRAMES_INTRO,
+  FILL_DETAILS_SOUND_IN_SECONDS,
   INTRO_SOUND_IN_SECONDS,
   SELECT_COLLECTION_TYPE_IN_SECONDS,
   VIDEO_FPS,
   VIDEO_HEIGHT,
   VIDEO_WIDTH,
 } from "../../types/constants";
+import { FillCollectionDetailsScene } from "./MyComp/FillCollectionDetailsScene";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -21,7 +24,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="RavenHouseIntro"
         component={RavenHouseIntro}
-        durationInFrames={240}
+        durationInFrames={DURATION_IN_FRAMES_INTRO}
         fps={VIDEO_FPS}
         width={VIDEO_WIDTH}
         height={VIDEO_HEIGHT}
@@ -57,6 +60,15 @@ export const RemotionRoot: React.FC = () => {
         id="selectCollectionType"
         component={SelectCollectionTypeScene}
         durationInFrames={VIDEO_FPS * SELECT_COLLECTION_TYPE_IN_SECONDS}
+        fps={VIDEO_FPS}
+        width={VIDEO_WIDTH}
+        height={VIDEO_HEIGHT}
+      />
+
+      <Composition
+        id="fillDetails"
+        component={FillCollectionDetailsScene}
+        durationInFrames={VIDEO_FPS * FILL_DETAILS_SOUND_IN_SECONDS}
         fps={VIDEO_FPS}
         width={VIDEO_WIDTH}
         height={VIDEO_HEIGHT}
