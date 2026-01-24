@@ -32,18 +32,6 @@ export const NFTTrading: React.FC = () => {
     extrapolateRight: "clamp",
   });
 
-  // Highlight box animation around "Buy Now" button area
-  const highlightOpacity = interpolate(
-    Math.sin(frame * 0.2),
-    [-1, 1],
-    [0.4, 1]
-  );
-  const highlightScale = interpolate(
-    Math.sin(frame * 0.2),
-    [-1, 1],
-    [1, 1.05]
-  );
-
   // Shield icon animation
   const shieldSpring = spring({
     frame: Math.max(0, frame - 40),
@@ -91,22 +79,6 @@ export const NFTTrading: React.FC = () => {
               width: 900,
               height: "auto",
               display: "block",
-            }}
-          />
-
-          {/* Animated highlight box */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 120,
-              right: 60,
-              width: 180,
-              height: 50,
-              border: `3px solid ${colors.primary}`,
-              borderRadius: 12,
-              opacity: highlightOpacity,
-              transform: `scale(${highlightScale})`,
-              boxShadow: `0 0 20px ${colors.primary}, inset 0 0 20px ${colors.primaryGlow}`,
             }}
           />
         </div>

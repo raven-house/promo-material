@@ -120,7 +120,7 @@ export const HomePageShowcase: React.FC = () => {
                 fontSize: 12,
               }}
             >
-              raven.house
+              ravenhouse.xyz
             </div>
           </div>
 

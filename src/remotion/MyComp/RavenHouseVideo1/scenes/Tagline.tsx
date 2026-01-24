@@ -53,14 +53,14 @@ export const Tagline: React.FC = () => {
   const logoY = interpolate(logoTransition, [0, 1], [0, -400]);
   const logoOpacity = interpolate(logoTransition, [0, 0.5, 1], [1, 1, 0.9]);
 
-  // Typewriter effect starts after logo moves
-  const typewriterStart = 25;
+  // Typewriter effect starts after logo moves (start earlier so text is fully visible)
+  const typewriterStart = 10;
   const typewriterFrame = Math.max(0, frame - typewriterStart);
   const typedText = getTypedText(typewriterFrame, MAIN_TEXT, CHAR_FRAMES);
   const isTypingComplete = typedText.length >= MAIN_TEXT.length;
 
   // Subtext fade in after typing completes
-  const subtextDelay = typewriterStart + MAIN_TEXT.length * CHAR_FRAMES + 10;
+  const subtextDelay = typewriterStart + MAIN_TEXT.length * CHAR_FRAMES + 5;
   const subtextOpacity = interpolate(
     frame - subtextDelay,
     [0, 20],

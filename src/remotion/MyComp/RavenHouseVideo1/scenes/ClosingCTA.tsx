@@ -130,7 +130,7 @@ export const ClosingCTA: React.FC = () => {
               textShadow: `0 0 20px ${colors.primaryGlow}`,
             }}
           >
-            raven.house
+            ravenhouse.xyz
           </div>
         </div>
 

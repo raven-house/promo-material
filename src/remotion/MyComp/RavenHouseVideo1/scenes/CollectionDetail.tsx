@@ -116,13 +116,13 @@ export const CollectionDetail: React.FC = () => {
         <StatCounter
           label="Floor Price"
           value={0.85}
-          unit="ETH"
+          unit="USDC"
           progress={counterProgress}
         />
         <StatCounter
           label="Volume"
           value={234.5}
-          unit="ETH"
+          unit="USDC"
           progress={counterProgress}
         />
         <StatCounter
