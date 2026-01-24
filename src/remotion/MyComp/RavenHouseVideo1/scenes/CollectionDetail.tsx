@@ -36,8 +36,8 @@ export const CollectionDetail: React.FC = () => {
     [0.3, 0.8]
   );
 
-  // Stats counter animation
-  const counterProgress = interpolate(frame, [30, 70], [0, 1], {
+  // Stats counter animation (starts earlier, finishes by frame 55 to be visible longer)
+  const counterProgress = interpolate(frame, [15, 55], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });

@@ -17,10 +17,10 @@ import { ClosingCTA } from "./scenes/ClosingCTA";
 const SCENE_1_DURATION = 90; // Logo Reveal: 3 seconds
 const SCENE_2_DURATION = 90; // Tagline: 3 seconds
 const SCENE_3_DURATION = 90; // Home Page: 3 seconds
-const SCENE_4_DURATION = 90; // Collection Detail: 3 seconds
+const SCENE_4_DURATION = 120; // Collection Detail: 4 seconds (more time for stat counters)
 const SCENE_5_DURATION = 90; // NFT Trading: 3 seconds
 const SCENE_6_DURATION = 120; // Gallery 3D: 4 seconds (hero moment)
-const SCENE_7_DURATION = 90; // Feature Montage: 3 seconds
+const SCENE_7_DURATION = 150; // Feature Montage: 5 seconds (more time for each slide)
 const SCENE_8_DURATION = 90; // Closing CTA: 3 seconds
 
 // Transition durations

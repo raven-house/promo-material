@@ -14,8 +14,8 @@ import { colors, springConfigs } from "../styles";
 
 loadFont();
 
-// Each quick cut is 30 frames
-const CUT_DURATION = 30;
+// Each cut is 50 frames (~1.7 seconds) for better visibility
+const CUT_DURATION = 50;
 
 const FeatureSlide: React.FC<{
   image: string;
