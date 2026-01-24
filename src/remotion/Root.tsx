@@ -5,6 +5,7 @@ import { RavenHouseIntro } from "./MyComp/RavenHouseIntro";
 import { TopCollectionsScene } from "./MyComp/TopCollectionsScene";
 import { CreateCollectionClickScene } from "./MyComp/CreateCollectionClickScene";
 import { SelectCollectionTypeScene } from "./MyComp/SelectCollectionTypeScene";
+import { RavenHouseVideo1 } from "./MyComp/RavenHouseVideo1";
 import {
   CREATE_BUTTON_SOUND_IN_SECONDS,
   DURATION_IN_FRAMES,
@@ -15,12 +16,24 @@ import {
   VIDEO_FPS,
   VIDEO_HEIGHT,
   VIDEO_WIDTH,
+  VIDEO1_DURATION_IN_FRAMES,
+  VIDEO1_WIDTH,
+  VIDEO1_HEIGHT,
 } from "../../types/constants";
 import { FillCollectionDetailsScene } from "./MyComp/FillCollectionDetailsScene";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="RavenHouseVideo1"
+        component={RavenHouseVideo1}
+        durationInFrames={VIDEO1_DURATION_IN_FRAMES}
+        fps={VIDEO_FPS}
+        width={VIDEO1_WIDTH}
+        height={VIDEO1_HEIGHT}
+      />
+
       <Composition
         id="RavenHouseIntro"
         component={RavenHouseIntro}
