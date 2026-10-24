@@ -1,5 +1,5 @@
 import type React from "react";
-import { Composition } from "remotion";
+import { Composition, Folder } from "remotion";
 import { RavenHouseDemo } from "./MyComp/RavenHouseDemo";
 import { RavenHouseIntro } from "./MyComp/RavenHouseIntro";
 import { TopCollectionsScene } from "./MyComp/TopCollectionsScene";
@@ -21,10 +21,61 @@ import {
   VIDEO1_HEIGHT,
 } from "../../types/constants";
 import { FillCollectionDetailsScene } from "./MyComp/FillCollectionDetailsScene";
+import { ScenePreview, WhyPrivateNFTs, wpnDefaultProps, wpnSchema } from "./WhyPrivateNFTs";
+import { PREVIEWS } from "./WhyPrivateNFTs/components/previews";
+import type { ShotId } from "./WhyPrivateNFTs/timeline";
+import { DURATION as WPN_DURATION, FPS as WPN_FPS, SHOTS as WPN_SHOTS } from "./WhyPrivateNFTs/timeline";
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="WhyPrivateNFTs"
+        component={WhyPrivateNFTs}
+        schema={wpnSchema}
+        defaultProps={wpnDefaultProps}
+        durationInFrames={WPN_DURATION}
+        fps={WPN_FPS}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="WhyPrivateNFTsVertical"
+        component={WhyPrivateNFTs}
+        schema={wpnSchema}
+        defaultProps={wpnDefaultProps}
+        durationInFrames={WPN_DURATION}
+        fps={WPN_FPS}
+        width={1080}
+        height={1920}
+      />
+      <Folder name="WhyPrivateNFTs">
+        {(Object.keys(WPN_SHOTS) as ShotId[]).map((id) => (
+          <Composition
+            key={id}
+            id={`WPN-${id}`}
+            component={ScenePreview}
+            defaultProps={{ id }}
+            durationInFrames={WPN_SHOTS[id].to - WPN_SHOTS[id].from}
+            fps={WPN_FPS}
+            width={1920}
+            height={1080}
+          />
+        ))}
+      </Folder>
+      <Folder name="WPN-Components">
+        {Object.entries(PREVIEWS).map(([name, p]) => (
+          <Composition
+            key={name}
+            id={`WPN-${name}`}
+            component={p.component}
+            durationInFrames={p.duration}
+            fps={WPN_FPS}
+            width={1920}
+            height={1080}
+          />
+        ))}
+      </Folder>
       <Composition
         id="RavenHouseVideo1"
         component={RavenHouseVideo1}
