@@ -38,3 +38,6 @@ out/
 .env
 build
 private.md
+# reference material (never commit)
+/reference/
+/public/reference/

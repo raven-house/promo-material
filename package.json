@@ -8,26 +8,30 @@
     "url": "https://mohitya.dev"
   },
   "dependencies": {
-    "@remotion/bundler": "4.0.320",
-    "@remotion/cli": "4.0.320",
-    "@remotion/google-fonts": "4.0.320",
-    "@remotion/lambda": "4.0.320",
-    "@remotion/paths": "4.0.320",
-    "@remotion/player": "4.0.320",
-    "@remotion/renderer": "4.0.320",
-    "@remotion/shapes": "4.0.320",
-    "@remotion/tailwind-v4": "4.0.320",
-    "@remotion/transitions": "4.0.320",
+    "@remotion/bundler": "4.0.538",
+    "@remotion/cli": "4.0.538",
+    "@remotion/google-fonts": "4.0.538",
+    "@remotion/lambda": "4.0.538",
+    "@remotion/layout-utils": "4.0.538",
+    "@remotion/motion-blur": "4.0.538",
+    "@remotion/noise": "4.0.538",
+    "@remotion/paths": "4.0.538",
+    "@remotion/player": "4.0.538",
+    "@remotion/renderer": "4.0.538",
+    "@remotion/shapes": "4.0.538",
+    "@remotion/tailwind-v4": "4.0.538",
+    "@remotion/transitions": "4.0.538",
     "clsx": "2.1.1",
+    "lucide-react": "1.61.0",
     "next": "15.2.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "remotion": "4.0.320",
+    "remotion": "4.0.538",
     "tailwind-merge": "3.0.1",
     "zod": "3.22.3"
   },
   "devDependencies": {
-    "@remotion/eslint-plugin": "4.0.320",
+    "@remotion/eslint-plugin": "4.0.538",
     "@eslint/eslintrc": "3.1.0",
     "@types/node": "20.12.14",
     "@types/react": "19.0.0",
@@ -50,6 +54,8 @@
     "lint": "next lint",
     "remotion": "remotionb studio",
     "render": "remotionb render",
-    "deploy": "node deploy.mjs"
+    "deploy": "node deploy.mjs",
+    "render:wpn": "remotion render WhyPrivateNFTs out/why-private-nfts.mp4 --codec=h264 --crf=16 --props='{\"music\":\"licensed\",\"sfx\":true}'",
+    "render:wpn:vertical": "remotion render WhyPrivateNFTsVertical out/why-private-nfts-vertical.mp4 --codec=h264 --crf=16 --props='{\"music\":\"licensed\",\"sfx\":true}'"
   }
 }
